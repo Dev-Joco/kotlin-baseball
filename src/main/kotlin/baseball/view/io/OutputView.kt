@@ -9,7 +9,7 @@ class OutputView {
     }
 
     fun printInputNumbers() {
-        TODO()
+        println(Message.INPUT_PLAYER_NUMBER)
     }
 
     fun printMatchingResult(result: Any) {
