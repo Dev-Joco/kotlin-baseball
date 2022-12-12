@@ -22,7 +22,7 @@ class BaseballGameView(
     override fun onPlay() {
         do {
             val numbers = inputView.readUserNumbers()
-            val result = viewModel.compare(numbers)
+            val result = viewModel.compareComputerNumberWith(numbers)
 
             outputView.printMatchingResult(result)
         } while (viewModel.isCompleted)

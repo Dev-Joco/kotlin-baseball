@@ -9,7 +9,7 @@ class BaseballGameViewModel {
         TODO()
     }
 
-    fun compare(numbers: List<Int>): Any {
+    fun compareComputerNumberWith(numbers: List<Int>): Any {
         TODO()
     }
 }
