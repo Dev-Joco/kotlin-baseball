@@ -15,6 +15,10 @@ class InputView {
     }
 
     fun readRetryOrFinishCommand(): GameCommand {
-        TODO()
+        val command = Console.readLine()
+
+        InputValidator.validateGameCommand(command)
+
+        return GameCommand.valueOf(command)
     }
 }
