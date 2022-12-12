@@ -5,7 +5,7 @@ typealias GameCommand = Command.Game
 object Command {
 
     enum class Game(private val command: String) {
-        RESTART("1"), FINISH("2");
+        RETRY("1"), FINISH("2");
 
         override fun toString(): String = command
 

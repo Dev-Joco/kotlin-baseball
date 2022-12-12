@@ -1,4 +1,4 @@
-package baseball.view
+package baseball.view.views
 
 interface ConsoleGameView {
 

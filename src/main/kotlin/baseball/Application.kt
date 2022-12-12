@@ -1,14 +1,8 @@
 package baseball
 
-import baseball.game.BaseballGame
-import baseball.game.Provider.pickRandomNumber
-import baseball.game.Provider.readLine
+import baseball.app.BaseballGameApplication
 
 fun main() {
-    BaseballGame.Builder()
-        .onStart(::pickRandomNumber)
-        .onProgress(::readLine)
-        .onFinish(::readLine)
-        .build()
-        .play()
+    val application = BaseballGameApplication.newInstance()
+    application.run()
 }

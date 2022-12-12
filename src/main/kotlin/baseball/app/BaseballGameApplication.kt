@@ -1,7 +1,9 @@
 package baseball.app
 
-import baseball.view.ConsoleGameView
-import baseball.view.BaseballGameView
+import baseball.view.io.InputView
+import baseball.view.io.OutputView
+import baseball.view.views.ConsoleGameView
+import baseball.view.views.BaseballGameView
 
 class BaseballGameApplication(private val view: ConsoleGameView) {
 
@@ -16,7 +18,12 @@ class BaseballGameApplication(private val view: ConsoleGameView) {
     }
 
     companion object {
-        fun newInstance(): BaseballGameApplication =
-            BaseballGameApplication(BaseballGameView())
+        fun newInstance(): BaseballGameApplication = BaseballGameApplication(
+            createBaseballGameView()
+        )
+
+        private fun createBaseballGameView(): BaseballGameView = BaseballGameView(
+            InputView(), OutputView()
+        )
     }
 }

@@ -2,8 +2,7 @@ package baseball
 
 import baseball.view.strings.Command
 import baseball.view.strings.GameCommand
-import baseball.view.validator.Validator
-import baseball.view.strings.Message
+import baseball.view.validator.InputValidator
 import org.junit.jupiter.api.Test
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import org.assertj.core.api.Assertions.assertThat
@@ -25,58 +24,58 @@ class ExceptionHandlerTest {
         @RepeatedTest(10)
         fun `길이3, 중복X, in (1~9)`() {
             digits.shuffled().take(3).joinToString("").let {
-                assertThat(Validator.validateNumberFormat(it)).isEqualTo(it)
+                assertThat(InputValidator.validateBallNumbers(it)).isEqualTo(it)
             }
         }
         @Test
         fun `길이3, 중복X, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("120") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("1x9") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("120") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1x9") }
         }
         @Test
         fun `길이3, 중복O, in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("121") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("121") }
         }
         @Test
         fun `길이3, 중복O, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("101") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("x11") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("101") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("x11") }
         }
         @Test
         fun `길이3미만, 중복X, in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("12") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("12") }
         }
         @Test
         fun `길이3미만, 중복X, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("02") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("1x") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("02") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1x") }
         }
         @Test
         fun `길이3미만, 중복O, in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("11") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("11") }
         }
         @Test
         fun `길이3미만, 중복O, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("11") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("xx") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("11") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("xx") }
         }
         @Test
         fun `길이3초과, 중복X, in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("1234") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1234") }
         }
         @Test
         fun `길이3초과, 중복X, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("1230") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("1x34") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1230") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1x34") }
         }
         @Test
         fun `길이3초과, 중복O, in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("1232") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1232") }
         }
         @Test
         fun `길이3초과, 중복O, not in (1~9)`() {
-            throwIllegalArgumentException { Validator.validateNumberFormat("1202") }
-            throwIllegalArgumentException { Validator.validateNumberFormat("121x") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("1202") }
+            throwIllegalArgumentException { InputValidator.validateBallNumbers("121x") }
         }
     }
 
@@ -86,14 +85,14 @@ class ExceptionHandlerTest {
 
         @Test
         fun `올바른 코드`() {
-            assertThat(Validator.validateGameCommand("1")).isEqualTo(GameCommand.RESTART)
-            assertThat(Validator.validateGameCommand("2")).isEqualTo(GameCommand.FINISH)
+            assertThat(InputValidator.validateGameCommand("1")).isEqualTo(GameCommand.RETRY)
+            assertThat(InputValidator.validateGameCommand("2")).isEqualTo(GameCommand.FINISH)
         }
 
         @Test
         fun `잘못된 코드`() {
-            throwIllegalArgumentException { Validator.validateGameCommand("0") }
-            throwIllegalArgumentException { Validator.validateGameCommand("3") }
+            throwIllegalArgumentException { InputValidator.validateGameCommand("0") }
+            throwIllegalArgumentException { InputValidator.validateGameCommand("3") }
         }
     }
 

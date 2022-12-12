@@ -5,14 +5,12 @@ import baseball.view.strings.ErrorMessage
 
 private typealias GameCommand = Command.Game
 
-object Validator {
+object InputValidator {
 
-    fun validateNumberFormat(number: String): String {
-        require(number.length == 3) { ErrorMessage.INVALID_NUMBER_LENGTH }
-        require(number.toSet().size == 3) { ErrorMessage.DUPLICATED_NUMBER }
-        require(number.any { it in '1'..'9' }) { ErrorMessage.INVALID_NUMBER_RANGE }
-
-        return number
+    fun validateBallNumbers(numbers: String) {
+        require(numbers.length == 3) { ErrorMessage.INVALID_NUMBER_LENGTH }
+        require(numbers.toSet().size == 3) { ErrorMessage.DUPLICATED_NUMBER }
+        require(numbers.any { it in '1'..'9' }) { ErrorMessage.INVALID_NUMBER_RANGE }
     }
 
     fun validateGameCommand(command: String): GameCommand {

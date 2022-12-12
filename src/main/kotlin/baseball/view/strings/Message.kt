@@ -1,6 +1,6 @@
 package baseball.view.strings
 
-import baseball.view.validator.Validator
+import baseball.view.validator.InputValidator
 
 object Message {
 
@@ -15,41 +15,6 @@ object Message {
     const val NOTHING = "낫싱"
     const val SPACE = " "
 
-    val INPUT_GAME_COMMAND = "게임을 새로 시작하려면 ${GameCommand.RESTART}, 종료하려면 ${GameCommand.FINISH}를 입력하세요."
+    val INPUT_GAME_COMMAND = "게임을 새로 시작하려면 ${GameCommand.RETRY}, 종료하려면 ${GameCommand.FINISH}를 입력하세요."
 
-    fun showStartGame() {
-        println(GAME_STARTED)
-    }
-
-    fun requestUserNumber(read: () -> String): String {
-        print(INPUT_PLAYER_NUMBER)
-
-        return Validator.validateNumberFormat(read())
-    }
-
-    fun showHint(ball: Int, strike: Int) {
-        val hint = mutableListOf<String>()
-            .apply {
-                if (ball != 0) add("$ball$BALL")
-                if (strike != 0) add("$strike$STRIKE")
-            }
-            .joinToString(SPACE)
-            .ifBlank { NOTHING }
-
-        println(hint)
-    }
-
-    fun requestRestartGame(read: () -> String): Boolean {
-        println(GAME_COMPLETED)
-        println(INPUT_GAME_COMMAND)
-
-        return when (Validator.validateGameCommand(read())) {
-            GameCommand.RESTART -> true
-            GameCommand.FINISH -> false
-        }
-    }
-
-    fun showFinishGame() {
-        println(GAME_FINISHED)
-    }
 }
