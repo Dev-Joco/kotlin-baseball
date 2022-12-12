@@ -17,7 +17,7 @@ class OutputView {
     }
 
     fun printGameCompleted() {
-        TODO()
+        println(Message.GAME_COMPLETED)
     }
 
     fun printInputGameRetryOrFinishCommand() {
