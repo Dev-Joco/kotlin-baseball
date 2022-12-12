@@ -1,5 +1,8 @@
 package baseball.game
 
+import baseball.view.validator.Validator
+import baseball.view.strings.Message
+
 class BaseballGame private constructor(
     private val readComputerNumber: () -> String,
     private val readUserNumber: () -> String,
@@ -11,7 +14,7 @@ class BaseballGame private constructor(
             Message.showStartGame()
 
             startGame(
-                ExceptionHandler.checkNumberFormat(readComputerNumber())
+                Validator.validateNumberFormat(readComputerNumber())
             )
 
         } while (Message.requestRestartGame(readFinishCode))
