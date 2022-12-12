@@ -21,7 +21,7 @@ class OutputView {
     }
 
     fun printInputGameRetryOrFinishCommand() {
-        TODO()
+        println(Message.INPUT_GAME_COMMAND)
     }
 
     fun printErrorMessage() {
