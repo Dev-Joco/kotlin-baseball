@@ -1,9 +1,11 @@
 package baseball.view.io
 
+import baseball.view.strings.Message
+
 class OutputView {
 
     fun printGameStarted() {
-        TODO()
+        println(Message.GAME_STARTED)
     }
 
     fun printInputNumbers() {
