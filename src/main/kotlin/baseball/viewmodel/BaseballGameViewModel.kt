@@ -7,11 +7,13 @@ class BaseballGameViewModel(
     private val repository: BaseballGameRepository
 ) {
 
-    val isCompleted: Boolean
-        get() = TODO()
+    var isCompleted: Boolean = false
+        private set
 
     fun generateComputerNumbers() {
-        TODO()
+        isCompleted = false
+
+        repository.generateComputerNumbers()
     }
 
     fun compareComputerNumberWith(userNumbers: List<Int>): GameResult {
