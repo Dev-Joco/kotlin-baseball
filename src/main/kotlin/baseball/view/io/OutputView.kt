@@ -1,5 +1,6 @@
 package baseball.view.io
 
+import baseball.model.data.GameResult
 import baseball.view.strings.Message
 
 class OutputView {
@@ -12,8 +13,18 @@ class OutputView {
         println(Message.INPUT_PLAYER_NUMBER)
     }
 
-    fun printMatchingResult(result: Any) {
-        TODO()
+    fun printGameResult(result: GameResult) {
+        println(buildString {
+            if (result.ball != 0) {
+                append(result.ball).append(Message.BALL).append(' ')
+            }
+            if (result.strike != 0) {
+                append(result.strike).append(Message.STRIKE)
+            }
+            if (result.ball == 0 && result.strike == 0) {
+                append(Message.NOTHING)
+            }
+        })
     }
 
     fun printGameCompleted() {

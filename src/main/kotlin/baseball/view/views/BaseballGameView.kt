@@ -27,7 +27,7 @@ class BaseballGameView(
             val numbers = inputView.readUserNumbers()
             val result = viewModel.compareComputerNumberWith(numbers)
 
-            outputView.printMatchingResult(result)
+            outputView.printGameResult(result)
         } while (viewModel.isCompleted)
     }
 
