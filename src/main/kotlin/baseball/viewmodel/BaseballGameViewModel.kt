@@ -1,5 +1,6 @@
 package baseball.viewmodel
 
+import baseball.model.data.GameResult
 import baseball.model.repository.BaseballGameRepository
 
 class BaseballGameViewModel(
@@ -13,7 +14,7 @@ class BaseballGameViewModel(
         TODO()
     }
 
-    fun compareComputerNumberWith(userNumbers: List<Int>): Any {
+    fun compareComputerNumberWith(userNumbers: List<Int>): GameResult {
         TODO()
     }
 }
