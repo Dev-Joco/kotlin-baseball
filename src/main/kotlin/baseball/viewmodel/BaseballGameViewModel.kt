@@ -8,23 +8,23 @@ class BaseballGameViewModel(
     private val repository: BaseballGameRepository
 ) {
 
-    var isCompleted: Boolean = false
+    var isGameCompleted: Boolean = false
         private set
 
     fun generateComputerNumbers() {
-        isCompleted = false
+        isGameCompleted = false
 
         repository.generateComputerNumbers()
     }
 
     fun compareComputerNumberWith(userNumbers: List<Int>): GameResult {
-        check(!isCompleted)
+        check(!isGameCompleted)
 
         val gameResult = repository.compareComputerNumberWith(
             GameNumbers(userNumbers)
         )
         if (gameResult.strike == GameNumbers.LENGTH) {
-            isCompleted = true
+            isGameCompleted = true
         }
 
         return gameResult

@@ -30,7 +30,9 @@ class BaseballGameView(
             val result = viewModel.compareComputerNumberWith(numbers)
 
             outputView.printGameResult(result)
-        } while (viewModel.isCompleted)
+        } while (!viewModel.isGameCompleted)
+
+        outputView.printGameCompleted()
     }
 
     override fun onFinish(): Boolean {

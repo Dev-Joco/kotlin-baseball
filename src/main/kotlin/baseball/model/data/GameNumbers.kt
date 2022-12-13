@@ -13,8 +13,9 @@ class GameNumbers(private val numbers: List<Int>) {
     }
 
     private fun isBall(index: Int, numbers1: List<Int>, numbers2: List<Int>): Boolean {
-        for (i in numbers1.indices) {
-            if (i != index && numbers1[i] == numbers2[i]) return true
+        val number = numbers1[index]
+        for (i in numbers2.indices) {
+            if (i != index && number == numbers2[i]) return true
         }
         return false
     }
