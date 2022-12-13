@@ -1,6 +1,10 @@
 package baseball.viewmodel
 
-class BaseballGameViewModel {
+import baseball.model.repository.BaseballGameRepository
+
+class BaseballGameViewModel(
+    private val repository: BaseballGameRepository
+) {
 
     val isCompleted: Boolean
         get() = TODO()
