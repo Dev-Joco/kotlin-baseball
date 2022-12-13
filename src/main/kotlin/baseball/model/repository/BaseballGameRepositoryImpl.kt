@@ -13,6 +13,9 @@ class BaseballGameRepositoryImpl : BaseballGameRepository {
     }
 
     override fun compareComputerNumberWith(userNumbers: GameNumbers): GameResult {
-        TODO()
+        return GameResult(
+            ball = computerNumbers.countBall(userNumbers),
+            strike = computerNumbers.countStrike(userNumbers),
+        )
     }
 }
