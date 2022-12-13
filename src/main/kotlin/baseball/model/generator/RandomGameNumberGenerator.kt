@@ -3,13 +3,12 @@ package baseball.model.generator
 import baseball.model.data.GameNumbers
 import camp.nextstep.edu.missionutils.Randoms
 
-class RandomGameNumbersGenerator : GameNumberGenerator {
+class RandomGameNumberGenerator : GameNumberGenerator {
 
-    override fun generate(): List<Int> {
-        return Randoms.pickUniqueNumbersInRange(
+    override fun generate(): Int {
+        return Randoms.pickNumberInRange(
             GameNumbers.MIN_NUMBER,
             GameNumbers.MAX_NUMBER,
-            GameNumbers.LENGTH,
         )
     }
 }

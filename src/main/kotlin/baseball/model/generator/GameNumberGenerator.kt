@@ -1,5 +1,5 @@
 package baseball.model.generator
 
 interface GameNumberGenerator {
-    fun generate(): List<Int>
+    fun generate(): Int
 }
