@@ -1,5 +1,6 @@
 package baseball.viewmodel
 
+import baseball.model.data.GameNumbers
 import baseball.model.data.GameResult
 import baseball.model.repository.BaseballGameRepository
 
@@ -17,6 +18,15 @@ class BaseballGameViewModel(
     }
 
     fun compareComputerNumberWith(userNumbers: List<Int>): GameResult {
-        TODO()
+        check(!isCompleted)
+
+        val gameResult = repository.compareComputerNumberWith(
+            GameNumbers(userNumbers)
+        )
+        if (gameResult.strike == GameNumbers.LENGTH) {
+            isCompleted = true
+        }
+
+        return gameResult
     }
 }
