@@ -24,6 +24,8 @@ class BaseballGameView(
 
     override fun onPlay() {
         do {
+            outputView.printInputNumbers()
+
             val numbers = inputView.readUserNumbers()
             val result = viewModel.compareComputerNumberWith(numbers)
 
