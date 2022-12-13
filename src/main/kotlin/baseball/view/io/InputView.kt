@@ -19,6 +19,6 @@ class InputView {
 
         InputValidator.validateGameCommand(command)
 
-        return GameCommand.valueOf(command)
+        return GameCommand[command]
     }
 }

@@ -18,8 +18,7 @@ object InputValidator {
         require(numbers.any { it in MIN_NUMBER..MAX_NUMBER }) { ErrorMessage.INVALID_NUMBER_RANGE }
     }
 
-    fun validateGameCommand(command: String): GameCommand {
+    fun validateGameCommand(command: String) {
         require(command in GameCommand) { ErrorMessage.INVALID_GAME_COMMAND }
-        return GameCommand.valueOf(command)
     }
 }

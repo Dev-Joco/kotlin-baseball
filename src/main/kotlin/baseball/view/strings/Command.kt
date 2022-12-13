@@ -12,9 +12,9 @@ object Command {
         companion object {
             private val values = values().toList()
 
-            operator fun contains(command: String): Boolean = values.any { it.command == command }
+            operator fun get(command: String): GameCommand = requireNotNull(values().find { it.command == command })
 
-            fun valueOf(command: String): GameCommand = requireNotNull(values().find { it.command == command })
+            operator fun contains(command: String): Boolean = values.any { it.command == command }
         }
     }
 }
