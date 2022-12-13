@@ -17,12 +17,13 @@ class BaseballGameView(
         viewModel = BaseballGameViewModel(
             BaseballGameRepositoryImpl()
         )
-        viewModel.generateComputerNumbers()
 
         outputView.printGameStarted()
     }
 
     override fun onPlay() {
+        viewModel.generateComputerNumbers()
+
         do {
             outputView.printInputNumbers()
 
