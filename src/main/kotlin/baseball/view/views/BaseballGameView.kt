@@ -1,5 +1,6 @@
 package baseball.view.views
 
+import baseball.model.repository.BaseballGameRepositoryImpl
 import baseball.view.io.InputView
 import baseball.view.io.OutputView
 import baseball.view.strings.GameCommand
@@ -13,7 +14,9 @@ class BaseballGameView(
     private lateinit var viewModel: BaseballGameViewModel
 
     override fun onInit() {
-        viewModel = BaseballGameViewModel()
+        viewModel = BaseballGameViewModel(
+            BaseballGameRepositoryImpl()
+        )
         viewModel.generateComputerNumbers()
 
         outputView.printGameStarted()
