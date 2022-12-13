@@ -10,7 +10,7 @@ class OutputView {
     }
 
     fun printInputNumbers() {
-        println(Message.INPUT_PLAYER_NUMBER)
+        print(Message.INPUT_PLAYER_NUMBER)
     }
 
     fun printGameResult(result: GameResult) {
